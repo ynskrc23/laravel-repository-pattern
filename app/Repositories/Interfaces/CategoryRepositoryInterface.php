@@ -1,8 +1,8 @@
 <?php
 namespace App\Repositories\Interfaces;
 
-Interface CategoryRepositoryInterface{
-
+Interface CategoryRepositoryInterface
+{
     public function allCategories();
     public function storeCategory($data);
     public function findCategory($id);
