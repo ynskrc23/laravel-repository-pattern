@@ -16,7 +16,7 @@ class UserController extends Controller
 
     public function index()
     {
-        $users = $this->userRepository->all();
+        $users = $this->userRepository->getAll();
         return view('users.index', compact('users'));
     }
 
@@ -40,13 +40,13 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $user = $this->userRepository->find($id);
+        $user = $this->userRepository->getById($id);
         return view('users.show', compact('user'));
     }
 
     public function edit($id)
     {
-        $user = $this->userRepository->find($id);
+        $user = $this->userRepository->getById($id);
         return view('users.edit', compact('user'));
     }
 

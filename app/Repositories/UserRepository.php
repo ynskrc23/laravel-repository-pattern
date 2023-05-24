@@ -7,9 +7,14 @@ use App\Repositories\Interfaces\UserRepositoryInterface;
 
 class UserRepository implements UserRepositoryInterface
 {
-    public function all()
+    public function getAll()
     {
         return User::all();
+    }
+
+    public function getById($id)
+    {
+        return User::findOrFail($id);
     }
 
     public function create(array $data)
@@ -28,10 +33,5 @@ class UserRepository implements UserRepositoryInterface
     {
         $user = User::findOrFail($id);
         $user->delete();
-    }
-
-    public function find($id)
-    {
-        return User::findOrFail($id);
     }
 }

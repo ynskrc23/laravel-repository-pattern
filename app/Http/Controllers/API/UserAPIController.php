@@ -17,7 +17,7 @@ class UserAPIController extends Controller
 
     public function getAllUser()
     {
-        $userDetails = $this->userRepository->all();
+        $userDetails = $this->userRepository->getAll();
         $messages = "User List Successfully!";
         return response()->json([
             'userDetails'=>$userDetails,
@@ -46,13 +46,13 @@ class UserAPIController extends Controller
 
     public function show($id)
     {
-        $user = $this->userRepository->find($id);
+        $user = $this->userRepository->getById($id);
         return view('users.show', compact('user'));
     }
 
     public function edit($id)
     {
-        $user = $this->userRepository->find($id);
+        $user = $this->userRepository->getById($id);
         return view('users.edit', compact('user'));
     }
 
